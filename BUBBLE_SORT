@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+void imprimir();
+int i, aux, troca, numero[5];
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    printf("\n--------------------------------------------");
+    printf("\nEXEMPLO BUBBLE SORT CRESCENTE");
+    printf("\n--------------------------------------------");
+    printf("\nInicializando o Array");
+    // Para inicilizar o array estou utilizando a estrutura de repetição for
+    // valor recebe 0, e enquanto valor for menor que 5 adicione;
+    for(i=0; i<5; i++)
+    {
+        numero[i] = 0; // aqui estou atribuindo 0 em todas as posições do array
+    }
+    imprimir(); // Aqui estou imprimindo na tela o array para mostrar que todos estão inicializado
+    printf("\n--------------------------------------------");
+    printf("\nInserindo valores no Array\n");
+    for(i=0; i<5; i++) // Mas uma fez uma estrutura de repetição para passar por todas as posições do array 
+    {
+        printf("\n|Posição %d |Digite um número: \t", i);
+        scanf("%d%*c",&numero[i]); 
+    }
+    printf("\n--------------------------------------------");
+    printf("\nValores armazenados no array");
+    imprimir(); // Imprimindo na tela o array para mostrar os valores armazenados
+    printf("\n--------------------------------------------");
+    troca = 1; // iniciacializando o contador para usar a esctrutura de repetição while
+    while (troca == 1)  
+    {
+        troca = 0;    // quando o terminar de percorrer o array zera a variavel para terminar a estrutura   
+        for (i = 0; i <= 3; i++)
+        {
+            if (numero[i] > numero[i + 1]) // aqui está passando pelo array, e verificando qual número é menor
+            {
+                troca = 1;
+                // estrutura posicionar o array em ordem crecente
+                aux = numero[i];
+                numero[i] = numero[i + 1];
+                numero[i + 1] = aux;
+            }
+        }
+    }
+    printf("\n--------------------------------------------");
+    printf("\nValores ordenados");
+    imprimir(); // imprimi o valor do array em ordem 
+    printf("\n------- -------------------------------------");
+    return 0;
+}
+ 
+void imprimir() // Função imprimir (para não repetir todas as vezes que precisar mostrar os valores) 
+{
+    printf("\n--------------------------------------------");
+    for (i=0; i<5; i++) 
+    {
+        printf("\n|Posicao: %d | Número: %d|", i, numero[i]);
+    }
+}
